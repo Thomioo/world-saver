@@ -147,12 +147,14 @@ public class WorldBackupConfigScreen extends Screen {
         } else {
             this.tokenField.setText("*".repeat(realToken.length()));
         }
-        this.tokenField.setEditable(true);
+        this.tokenField.setEditable(tokenVisible || realToken.isEmpty());
         this.tokenField.setEditableColor(0xFFFFFF);
         this.tokenField.setMaxLength(128);
         // Listen for changes only if visible
         this.tokenField.setChangedListener(text -> {
-            realToken = text;
+            if (tokenVisible) {
+                realToken = text;
+            }
         });
         if (tokenVisible) {
             this.tokenField.setTooltip(net.minecraft.client.gui.tooltip.Tooltip.of(Text.literal(realToken)));
@@ -178,6 +180,7 @@ public class WorldBackupConfigScreen extends Screen {
                         .literal(
                                 "Paste your GitHub Personal Access Token here. It must have 'repo' scope. Keep it private!")));
             }
+            this.tokenField.setEditable(tokenVisible || realToken.isEmpty());
             this.tokenField.setCursorToEnd();
         }).dimensions(this.width / 2 + tokenFieldWidth / 2 + 6, tokenStartY, 40, 20).build();
         this.addDrawableChild(this.showHideTokenButton);
@@ -309,6 +312,11 @@ public class WorldBackupConfigScreen extends Screen {
     }
 
     private void saveAndClose() {
+        // If the token field is currently editable, update realToken with the field's
+        // text before saving
+        if (this.tokenField != null && (tokenVisible || realToken.isEmpty())) {
+            realToken = this.tokenField.getText();
+        }
         String prevToken = me.shedaniel.autoconfig.AutoConfig.getConfigHolder(ModConfig.class)
                 .getConfig().githubAccessToken;
         String token = realToken;

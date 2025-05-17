@@ -51,7 +51,7 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 - Click "Generate new token"
 - Select `repo` scope
 - Copy and paste the token into the mod config
-
+'
 ---
 
 ## ⚙️ Configuration
