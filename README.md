@@ -84,6 +84,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 💬 Support & Feedback
 
-- [GitHub Issues](https://github.com/yourusername/world-saver/issues)
+- [GitHub Issues](https://github.com/Thomioo/world-saver/issues)
 
 ---
