@@ -76,7 +76,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🙏 Credits
+## 🙏 Creditsas
 - Author: Tomesh
 - [FabricMC](https://fabricmc.net/), [Cloth Config](https://github.com/shedaniel/cloth-config), [JGit](https://www.eclipse.org/jgit/), [kohsuke/github-api](https://github.com/hub4j/github-api)
 
