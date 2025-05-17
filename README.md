@@ -1,8 +1,8 @@
-# World Saver - GitHub Backup Mod for Minecraft
+# World Syncer - GitHub Backup Mod for Minecraft
 
 ## 🚀 Overview
 
-World Saver is a Minecraft Fabric mod that automatically backs up your worlds to GitHub. Never lose your progress again—sync your worlds to private repositories and restore them anytime, anywhere.
+World Syncer is a Minecraft Fabric mod that automatically backs up your worlds to GitHub. Never lose your progress again—sync your worlds to private repositories and restore them anytime, anywhere.
 
 ---
 
@@ -19,11 +19,11 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ## 📦 Installation
 
-1. Download the mod from [Releases](https://github.com/Thomioo/world-saver/releases) or build from source.
+1. Download the mod from [Releases](https://github.com/Thomioo/world-syncer/releases) or build from source.
 2. Install [Fabric Loader](https://fabricmc.net/use/installer/) (version 0.16.14+ recommended).
 3. Install [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
 4. Install [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config).
-5. Place `world-saver-x.x.x.jar` in your `mods/` folder.
+5. Place `world-syncer-x.x.x.jar` in your `mods/` folder.
 6. Launch Minecraft (1.20.1).
 
 ---
@@ -39,7 +39,7 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ## 🎮 Usage
 
-1. Open Minecraft and go to Mods > World Saver > Config.
+1. Open Minecraft and go to Mods > World Syncer > Config.
 2. Paste your GitHub Personal Access Token (with `repo` scope) in the config screen.
    - Click "Show" to reveal the field, paste your token, then click "Hide" to mask it.
 3. Enable backup for any world using the toggle button.
@@ -55,9 +55,9 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 ---
 
 ## ⚙️ Configuration
-- Access the config screen via ModMenu or `/config world-saver` command
+- Access the config screen via ModMenu or `/config world-syncer` command
 - Set your GitHub token, enable/disable backups per world
-- All settings are saved in `config/world-saver.json` (managed by Cloth Config)
+- All settings are saved in `config/world-syncer.json` (managed by Cloth Config)
 
 ---
 
@@ -84,6 +84,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 💬 Support & Feedback
 
-- [GitHub Issues](https://github.com/Thomioo/world-saver/issues)
+- [GitHub Issues](https://github.com/Thomioo/world-syncer/issues)
 
 ---

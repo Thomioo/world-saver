@@ -1,14 +1,16 @@
-package com.tomesh.worldsaver; // Assuming this is your base package
+package com.tomesh.worldsyncer; // Assuming this is your base package
 
-import com.tomesh.worldsaver.config.ModConfig; // Corrected import
-import com.tomesh.worldsaver.config.ModConfig.WorldBackupEntry;
-import com.tomesh.worldsaver.core.GithubService; // Corrected import
 import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 
 import java.util.Map;
+
+import com.tomesh.worldsyncer.GithubBackupMod;
+import com.tomesh.worldsyncer.config.ModConfig;
+import com.tomesh.worldsyncer.config.ModConfig.WorldBackupEntry;
+import com.tomesh.worldsyncer.core.GithubService;
 
 public class ClientInit implements ClientModInitializer {
     private static GithubService githubServiceInstance;
@@ -68,7 +70,7 @@ public class ClientInit implements ClientModInitializer {
         new Thread(() -> {
             try {
                 Map<String, String> remoteWorlds = githubServiceInstance.listMinecraftWorldRepos().get();
-                java.nio.file.Path savesDir = com.tomesh.worldsaver.core.GithubService.getSavesDir();
+                java.nio.file.Path savesDir = com.tomesh.worldsyncer.core.GithubService.getSavesDir();
                 java.io.File savesDirFile = savesDir.toFile();
                 if (!savesDirFile.exists())
                     savesDirFile.mkdirs();
@@ -171,7 +173,7 @@ public class ClientInit implements ClientModInitializer {
         try {
             GithubBackupMod.LOGGER.info("Running config cleanup for non-existent worlds...");
             ModConfig configToUpdate = GithubBackupMod.getConfig();
-            java.nio.file.Path savesDir = com.tomesh.worldsaver.core.GithubService.getSavesDir();
+            java.nio.file.Path savesDir = com.tomesh.worldsyncer.core.GithubService.getSavesDir();
             java.io.File savesDirFile = savesDir.toFile();
             java.util.Set<String> localWorlds = new java.util.HashSet<>();
             if (savesDirFile.exists()) {

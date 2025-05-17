@@ -1,4 +1,4 @@
-package com.tomesh.worldsaver.mixin.client;
+package com.tomesh.worldsyncer.mixin.client;
 
 import net.minecraft.client.gui.screen.world.WorldListWidget;
 import net.minecraft.world.level.storage.LevelSummary;
@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.tomesh.worldsaver.GithubBackupMod;
-import com.tomesh.worldsaver.config.ModConfig;
+import com.tomesh.worldsyncer.GithubBackupMod;
+import com.tomesh.worldsyncer.config.ModConfig;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,13 +29,13 @@ public class WorldDeleteMixin {
                 summaryField.setAccessible(true);
                 summary = (LevelSummary) summaryField.get(this);
             } catch (Exception e) {
-                System.err.println("[WorldSaver] Could not access LevelSummary via reflection: " + e.getMessage());
+                System.err.println("[WorldSyncer] Could not access LevelSummary via reflection: " + e.getMessage());
                 return;
             }
             if (summary == null)
                 return;
             String worldFolderName = summary.getName();
-            String key = com.tomesh.worldsaver.config.ModConfig.worldKey(worldFolderName);
+            String key = com.tomesh.worldsyncer.config.ModConfig.worldKey(worldFolderName);
             File savesDir = new File(MinecraftClient.getInstance().runDirectory, "saves");
             File worldDir = new File(savesDir, worldFolderName);
             // List of git-related files/dirs to delete
@@ -75,7 +75,8 @@ public class WorldDeleteMixin {
                 }
                 if (!deleted && target.exists()) {
                     System.err
-                            .println("[WorldSaver] Failed to delete git-related file/dir: " + target.getAbsolutePath());
+                            .println(
+                                    "[WorldSyncer] Failed to delete git-related file/dir: " + target.getAbsolutePath());
                 }
             }
             // Remove from backup config and add to noBackupWorlds
@@ -94,7 +95,7 @@ public class WorldDeleteMixin {
                 me.shedaniel.autoconfig.AutoConfig.getConfigHolder(ModConfig.class).save();
             }
         } catch (Exception e) {
-            System.err.println("[WorldSaver] Failed to clean up git files before world deletion: " + e.getMessage());
+            System.err.println("[WorldSyncer] Failed to clean up git files before world deletion: " + e.getMessage());
         }
     }
 
@@ -114,16 +115,16 @@ public class WorldDeleteMixin {
                         try (RandomAccessFile raf = new RandomAccessFile(file.toFile(), "rw")) {
                             // Just open and close
                         } catch (Exception e) {
-                            System.err.println("[WorldSaver] Could not unlock file: " + file + " - " + e.getMessage());
+                            System.err.println("[WorldSyncer] Could not unlock file: " + file + " - " + e.getMessage());
                         }
                         try {
                             Files.delete(file);
                         } catch (IOException e2) {
-                            System.err.println("[WorldSaver] Still failed to delete file after unlock attempt: " + file
+                            System.err.println("[WorldSyncer] Still failed to delete file after unlock attempt: " + file
                                     + " - " + e2.getMessage());
                         }
                     } catch (IOException e) {
-                        System.err.println("[WorldSaver] Failed to delete file: " + file + " - " + e.getMessage());
+                        System.err.println("[WorldSyncer] Failed to delete file: " + file + " - " + e.getMessage());
                     }
                     return FileVisitResult.CONTINUE;
                 }
@@ -133,14 +134,14 @@ public class WorldDeleteMixin {
                     try {
                         Files.delete(dir);
                     } catch (IOException e) {
-                        System.err.println("[WorldSaver] Failed to delete directory: " + dir + " - " + e.getMessage());
+                        System.err.println("[WorldSyncer] Failed to delete directory: " + dir + " - " + e.getMessage());
                     }
                     return FileVisitResult.CONTINUE;
                 }
             });
             return true;
         } catch (IOException e) {
-            System.err.println("[WorldSaver] NIO delete failed: " + e.getMessage());
+            System.err.println("[WorldSyncer] NIO delete failed: " + e.getMessage());
             return false;
         }
     }
@@ -157,12 +158,12 @@ public class WorldDeleteMixin {
         try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
             // Just open and close
         } catch (Exception e) {
-            System.err.println("[WorldSaver] Could not unlock .gitignore: " + file + " - " + e.getMessage());
+            System.err.println("[WorldSyncer] Could not unlock .gitignore: " + file + " - " + e.getMessage());
         }
         try {
             return file.delete();
         } catch (SecurityException e) {
-            System.err.println("[WorldSaver] Still failed to delete .gitignore after unlock attempt: " + file + " - "
+            System.err.println("[WorldSyncer] Still failed to delete .gitignore after unlock attempt: " + file + " - "
                     + e.getMessage());
             return false;
         }

@@ -1,6 +1,5 @@
-package com.tomesh.worldsaver.config;
+package com.tomesh.worldsyncer.config;
 
-import com.tomesh.worldsaver.GithubBackupMod;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
@@ -13,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
+
+import com.tomesh.worldsyncer.GithubBackupMod;
 
 @Config(name = GithubBackupMod.MOD_ID)
 public class ModConfig implements ConfigData {

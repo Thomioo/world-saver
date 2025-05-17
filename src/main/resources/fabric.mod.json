@@ -1,34 +1,34 @@
 {
 	"schemaVersion": 1,
-	"id": "world-saver",
+	"id": "world-syncer",
 	"version": "${version}",
-	"name": "World Saver",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "World Syncer",
+	"description": "Sync your worlds to access them from different minecraft instancer and different devices.",
 	"authors": [
 		"Tomesh"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Thomioo/world-syncer"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/world-saver/icon.png",
+	"icon": "assets/world-syncer/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.tomesh.worldsaver.GithubBackupMod"
+			"com.tomesh.worldsyncer.GithubBackupMod"
 		],
 		"client": [
-			"com.tomesh.worldsaver.ClientInit"
+			"com.tomesh.worldsyncer.ClientInit"
 		],
 		"modmenu": [
-			"com.tomesh.worldsaver.config.ModMenuIntegration"
+			"com.tomesh.worldsyncer.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
-		"world-saver.mixins.json",
+		"world-syncer.mixins.json",
 		{
-			"config": "world-saver.client.mixins.json",
+			"config": "world-syncer.client.mixins.json",
 			"environment": "client"
 		}
 	],

@@ -19,7 +19,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"world-saver" {
+		"world-syncer" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

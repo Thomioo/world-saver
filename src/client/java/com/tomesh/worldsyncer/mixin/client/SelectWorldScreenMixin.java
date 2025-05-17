@@ -1,10 +1,11 @@
-package com.tomesh.worldsaver.mixin.client;
+package com.tomesh.worldsyncer.mixin.client;
 
-import com.tomesh.worldsaver.ClientInit;
-import com.tomesh.worldsaver.GithubBackupMod;
-import com.tomesh.worldsaver.config.ModConfig;
-import com.tomesh.worldsaver.config.ModConfig.WorldBackupEntry;
-import com.tomesh.worldsaver.core.GithubService;
+import com.tomesh.worldsyncer.ClientInit;
+import com.tomesh.worldsyncer.GithubBackupMod;
+import com.tomesh.worldsyncer.config.ModConfig;
+import com.tomesh.worldsyncer.config.ModConfig.WorldBackupEntry;
+import com.tomesh.worldsyncer.core.GithubService;
+
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;

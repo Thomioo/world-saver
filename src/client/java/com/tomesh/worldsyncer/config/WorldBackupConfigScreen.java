@@ -1,9 +1,11 @@
-package com.tomesh.worldsaver.config;
+package com.tomesh.worldsyncer.config;
 
-import com.tomesh.worldsaver.ClientInit;
-import com.tomesh.worldsaver.GithubBackupMod;
-import com.tomesh.worldsaver.config.ModConfig.WorldBackupEntry;
-import com.tomesh.worldsaver.core.GithubService;
+import com.tomesh.worldsyncer.ClientInit;
+import com.tomesh.worldsyncer.GithubBackupMod;
+import com.tomesh.worldsyncer.config.ModConfig;
+import com.tomesh.worldsyncer.config.ModConfig.WorldBackupEntry;
+import com.tomesh.worldsyncer.core.GithubService;
+
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -60,7 +62,7 @@ public class WorldBackupConfigScreen extends Screen {
         super(Text.literal("World Saver Backup Config"));
         this.parent = parent;
         // Clean up config of worlds not present locally or on GitHub
-        com.tomesh.worldsaver.ClientInit.cleanConfigOfNonexistentWorlds();
+        com.tomesh.worldsyncer.ClientInit.cleanConfigOfNonexistentWorlds();
         // Fetch all possible worlds from GitHub and local saves
         Map<String, String> lowerToRealName = new HashMap<>();
         // Add all local worlds (real folder names)
@@ -94,7 +96,7 @@ public class WorldBackupConfigScreen extends Screen {
         Collections.sort(worldNames);
         // Load current config
         for (String world : worldNames) {
-            String key = com.tomesh.worldsaver.config.ModConfig.worldKey(world);
+            String key = com.tomesh.worldsyncer.config.ModConfig.worldKey(world);
             WorldBackupEntry entry = config.backedUpWorlds.getOrDefault(key, new WorldBackupEntry("", false));
             backupEntries.put(world, entry);
             backupEnabled.put(world, entry.enabled);
@@ -326,7 +328,7 @@ public class WorldBackupConfigScreen extends Screen {
         List<String> worldsToClean = new ArrayList<>();
         for (int i = 0; i < worldNames.size(); i++) {
             String world = worldNames.get(i);
-            String key = com.tomesh.worldsaver.config.ModConfig.worldKey(world);
+            String key = com.tomesh.worldsyncer.config.ModConfig.worldKey(world);
             WorldBackupEntry entry = backupEntries.get(world);
             boolean wasEnabled = entry.enabled;
             entry.enabled = backupEnabled.getOrDefault(world, false);
@@ -380,9 +382,9 @@ public class WorldBackupConfigScreen extends Screen {
         // and auto-clone worlds
         if (!token.trim().isEmpty() && !token.trim().equals(prevToken)) {
             // Re-initialize GithubService
-            com.tomesh.worldsaver.ClientInit.getGithubService(); // This will re-init if needed
+            com.tomesh.worldsyncer.ClientInit.getGithubService(); // This will re-init if needed
             // Run the world auto-config/clone logic
-            com.tomesh.worldsaver.ClientInit.runWorldAutoConfigAndClone();
+            com.tomesh.worldsyncer.ClientInit.runWorldAutoConfigAndClone();
         }
     }
 

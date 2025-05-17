@@ -1,15 +1,16 @@
 // src/main/java/com/yourname/githubbackup/GithubBackupMod.java
-package com.tomesh.worldsaver;
+package com.tomesh.worldsyncer;
 
-import com.tomesh.worldsaver.config.ModConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.tomesh.worldsyncer.config.ModConfig;
+
 public class GithubBackupMod implements ModInitializer {
-    public static final String MOD_ID = "world-saver"; // Or your actual mod ID from fabric.mod.json
+    public static final String MOD_ID = "world-syncer"; // Or your actual mod ID from fabric.mod.json
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     private static ModConfig config;
 

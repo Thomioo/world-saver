@@ -1,6 +1,5 @@
-package com.tomesh.worldsaver.core; // Assuming your package is com.tomesh.worldsaver.core
+package com.tomesh.worldsyncer.core; // Assuming your package is com.tomesh.worldsyncer.core
 
-import com.tomesh.worldsaver.GithubBackupMod;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -21,6 +20,8 @@ import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
 import org.kohsuke.github.HttpException;
+
+import com.tomesh.worldsyncer.GithubBackupMod;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -213,13 +214,13 @@ public class GithubService {
                         git.remoteSetUrl().setRemoteName("origin").setRemoteUri(new URIish(remoteUrl)).call();
                         GithubBackupMod.LOGGER.info("Updated remote origin URL to: {}", remoteUrl);
                     }
-                    // Write .worldsaver.json with real world name
-                    File meta = new File(worldDir, ".worldsaver.json");
+                    // Write .worldsyncer.json with real world name
+                    File meta = new File(worldDir, ".worldsyncer.json");
                     try (FileWriter writer = new FileWriter(meta)) {
                         String canonicalName = worldDir.getCanonicalFile().getName();
                         writer.write("{\"realWorldName\":\"" + canonicalName.replace("\"", "\\\"") + "\"}");
                     } catch (IOException e) {
-                        GithubBackupMod.LOGGER.warn("Could not write .worldsaver.json: {}", e.getMessage());
+                        GithubBackupMod.LOGGER.warn("Could not write .worldsyncer.json: {}", e.getMessage());
                     }
                 }
                 GithubBackupMod.LOGGER.info("Staging changes for {}", worldDir.getName());
@@ -368,14 +369,14 @@ public class GithubService {
                             if (createdRepo != null && !createdRepo.isEmpty()) {
                                 // Update config if possible
                                 try {
-                                    com.tomesh.worldsaver.config.ModConfig config = com.tomesh.worldsaver.GithubBackupMod
+                                    com.tomesh.worldsyncer.config.ModConfig config = com.tomesh.worldsyncer.GithubBackupMod
                                             .getConfig();
-                                    com.tomesh.worldsaver.config.ModConfig.WorldBackupEntry entry = config.backedUpWorlds
-                                            .get(com.tomesh.worldsaver.config.ModConfig.worldKey(worldDir.getName()));
+                                    com.tomesh.worldsyncer.config.ModConfig.WorldBackupEntry entry = config.backedUpWorlds
+                                            .get(com.tomesh.worldsyncer.config.ModConfig.worldKey(worldDir.getName()));
                                     if (entry != null) {
                                         entry.repoFullName = createdRepo;
                                         me.shedaniel.autoconfig.AutoConfig
-                                                .getConfigHolder(com.tomesh.worldsaver.config.ModConfig.class).save();
+                                                .getConfigHolder(com.tomesh.worldsyncer.config.ModConfig.class).save();
                                     }
                                 } catch (Exception ignored) {
                                 }
@@ -436,8 +437,8 @@ public class GithubService {
                                 .formatted(Formatting.YELLOW));
                         return;
                     }
-                    // Read .worldsaver.json to get real world name
-                    File meta = new File(worldDir, ".worldsaver.json");
+                    // Read .worldsyncer.json to get real world name
+                    File meta = new File(worldDir, ".worldsyncer.json");
                     String realWorldName = worldDir.getName();
                     if (meta.exists()) {
                         try (java.io.FileReader reader = new java.io.FileReader(meta)) {
@@ -451,7 +452,7 @@ public class GithubService {
                                     realWorldName = val;
                             }
                         } catch (Exception e) {
-                            GithubBackupMod.LOGGER.warn("Could not read .worldsaver.json: {}", e.getMessage());
+                            GithubBackupMod.LOGGER.warn("Could not read .worldsyncer.json: {}", e.getMessage());
                         }
                     }
                     // --- Ensure folder name matches canonical casing ---
