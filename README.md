@@ -87,5 +87,3 @@ This project is licensed under the [MIT License](LICENSE).
 - [GitHub Issues](https://github.com/yourusername/world-saver/issues)
 
 ---
-
-"Back up your worlds, save your adventures!" 
