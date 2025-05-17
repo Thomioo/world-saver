@@ -19,7 +19,7 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ## 📦 Installation
 
-1. Download the mod from [Releases](https://github.com/yourusername/world-saver/releases) or build from source.
+1. Download the mod from [Releases](https://github.com/Thomioo/world-saver/releases) or build from source.
 2. Install [Fabric Loader](https://fabricmc.net/use/installer/) (version 0.16.14+ recommended).
 3. Install [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
 4. Install [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config).
