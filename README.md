@@ -41,10 +41,11 @@ World Syncer is a Minecraft Fabric mod that automatically backs up your worlds t
 
 1. Open Minecraft and go to Mods > World Syncer > Config.
 2. Paste your GitHub Personal Access Token (with `repo` scope) in the config screen.
-   - Click "Show" to reveal the field, paste your token, then click "Hide" to mask it.
-3. Enable backup for any world using the toggle button.
-4. Worlds will be backed up to private GitHub repos automatically.
-5. Restore or sync worlds from GitHub at any time.
+   - Paste your token, then click "Hide" to mask it.
+3. Quit and Relaunch Minecraft.
+4. Enable backup for any world using the toggle button.
+5. Worlds will be backed up to private GitHub repos automatically.
+6. Restore or sync worlds from GitHub at any time.
 
 ### How to Get a GitHub Token
 - Go to [GitHub Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens)
