@@ -9,6 +9,8 @@ classes/
 
 run
 
+.dev
+
 *.launch
 
 # idea
