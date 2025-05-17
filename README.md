@@ -1,12 +1,12 @@
 # World Saver - GitHub Backup Mod for Minecraft
 
-## Overview
+## 🚀 Overview
 
 World Saver is a Minecraft Fabric mod that automatically backs up your worlds to GitHub. Never lose your progress again—sync your worlds to private repositories and restore them anytime, anywhere.
 
 ---
 
-## Features
+## 🛠️ Features
 - Sharing worlds across devices
 - Automatic world backups to your GitHub account
 - Restore worlds from GitHub with a single click
@@ -17,7 +17,7 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ---
 
-## Installation
+## 📦 Installation
 
 1. Download the mod from [Releases](https://github.com/yourusername/world-saver/releases) or build from source.
 2. Install [Fabric Loader](https://fabricmc.net/use/installer/) (version 0.16.14+ recommended).
@@ -28,7 +28,7 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ---
 
-## Dependencies
+## 📚 Dependencies
 - Fabric Loader (>= 0.16.14)
 - Fabric API
 - Cloth Config (>= 11.0.0)
@@ -37,7 +37,7 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ---
 
-## Usage
+## 🎮 Usage
 
 1. Open Minecraft and go to Mods > World Saver > Config.
 2. Paste your GitHub Personal Access Token (with `repo` scope) in the config screen.
@@ -54,14 +54,14 @@ World Saver is a Minecraft Fabric mod that automatically backs up your worlds to
 
 ---
 
-## Configuration
+## ⚙️ Configuration
 - Access the config screen via ModMenu or `/config world-saver` command
 - Set your GitHub token, enable/disable backups per world
 - All settings are saved in `config/world-saver.json` (managed by Cloth Config)
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Pull requests, issues, and suggestions are welcome.
 - Fork the repo
@@ -70,19 +70,19 @@ Pull requests, issues, and suggestions are welcome.
 
 ---
 
-## License
+## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Credits
+## 🙏 Credits
 - Author: Tomesh
 - [FabricMC](https://fabricmc.net/), [Cloth Config](https://github.com/shedaniel/cloth-config), [JGit](https://www.eclipse.org/jgit/), [kohsuke/github-api](https://github.com/hub4j/github-api)
 
 ---
 
-## Support & Feedback
+## 💬 Support & Feedback
 
 - [GitHub Issues](https://github.com/yourusername/world-saver/issues)
 
