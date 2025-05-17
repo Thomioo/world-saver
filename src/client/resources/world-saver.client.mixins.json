@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "com.tomesh.worldsaver.mixin.client",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"IntegratedServerMixin",
+		"SelectWorldScreenMixin",
+		"WorldDeleteMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

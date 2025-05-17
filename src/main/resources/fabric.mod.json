@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "world-saver",
+	"version": "${version}",
+	"name": "World Saver",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Tomesh"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/world-saver/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.tomesh.worldsaver.GithubBackupMod"
+		],
+		"client": [
+			"com.tomesh.worldsaver.ClientInit"
+		],
+		"modmenu": [
+			"com.tomesh.worldsaver.config.ModMenuIntegration"
+		]
+	},
+	"mixins": [
+		"world-saver.mixins.json",
+		{
+			"config": "world-saver.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"cloth-config2": ">=11.0.0",
+		"modmenu": ">=7.2.2"
+	}
+}
